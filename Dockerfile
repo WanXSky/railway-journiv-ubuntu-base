@@ -8,9 +8,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl wget ca-certificates git screen \
     libmagic1 ffmpeg libffi8 libpq5 \
     libheif1 libde265-0 libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 \
-    python3.12 python3.12-venv python3-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+RUN apt-get update && apt-get install -y software-properties-common \
+    && add-apt-repository ppa:deadsnakes/ppa \
+    && apt-get update \
+    && apt-get install -y python3.12 python3.12-venv python3-pip \
+    && apt-get clean
+    
 ENV CLOUDFLARED_TUNNEL=""
 # ========================
 # 2. PYTHON TOOLS (uv)
