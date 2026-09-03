@@ -23,7 +23,7 @@ alembic upgrade head
 # ========================
 if [ -n "$CLOUDFLARED_TOKEN" ]; then
     echo "🌐 Starting Cloudflared tunnel..."
-    cloudflared tunnel --url http://localhost:8000 &
+    cloudflared service install "$CLOUDFLARED_TOKEN" 
 fi
 
 # ========================
