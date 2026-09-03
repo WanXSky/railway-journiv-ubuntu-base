@@ -1,5 +1,8 @@
 FROM ubuntu:22.04
 
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
 # ========================
 # 1. SYSTEM DEPENDENCIES
 # ========================
